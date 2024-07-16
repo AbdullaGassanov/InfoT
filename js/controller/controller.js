@@ -6,29 +6,17 @@ import model from '../model/weatherModel.js';
 class Controller {
   _data = {};
 
-  constructor(model, wV) {
-    this.wV = wV;
-    this.m = model;
-
+  constructor() {
     this.getDataFromModel();
-
-    this.wV.addWeatherHandler.bind(this.showWeather);
   }
 
   async getDataFromModel() {
-    this._data.wea = await model.getsPosition();
-    console.log(this._data.wea);
-  }
-
-  showWeather() {
-    weatherView.renderWeather(model._data);
+    this._data.geo = await model.getGeopify();
+    const { latitude, longitude } = this._data.geo.location;
+    this._data.weather = await model.getPosition(latitude, longitude);
+    console.log(this._data);
+    weatherView.renderWeather(this._data);
   }
 }
 
-const c = new Controller(model, weatherView);
-
-c.showWeather();
-
-/* const c = new Controller(weatherView, model);
-
-c.showWeather(); */
+const c = new Controller();

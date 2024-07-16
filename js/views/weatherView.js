@@ -3,20 +3,20 @@ class WeatherView {
     this.weather = document.querySelector('.weather');
   }
 
-  addWeatherHandler(handler) {
-    /*   this.weather.addEventListener('click', e => {
-      console.log(e.target); */
+  /*   addWeatherHandler(handler) {
+      this.weather.addEventListener('click', e => {
+      console.log(e.target);
 
     handler();
-    /*  }); */
+     });
   }
-
+ */
   renderWeather(data) {
     if (!data) return;
 
     this.weather.textContent = '';
 
-    /* this.weather.insertAdjacentHTML(
+    this.weather.insertAdjacentHTML(
       'afterbegin',
       `
           <label class="weather__city--desc">City:</label>
@@ -26,9 +26,9 @@ class WeatherView {
           <img src="" alt="" class="weather__icon" />
 
       `
-    ); */
+    );
 
-    console.log(data._data);
+    console.log(data);
   }
 }
 
