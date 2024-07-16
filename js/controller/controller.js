@@ -15,8 +15,9 @@ class Controller {
     this.wV.addWeatherHandler.bind(this.showWeather);
   }
 
-  getDataFromModel() {
-    console.log(model._data);
+  async getDataFromModel() {
+    this._data.wea = await model.getsPosition();
+    console.log(this._data.wea);
   }
 
   showWeather() {

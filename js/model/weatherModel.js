@@ -15,6 +15,8 @@ class Model {
         `);
 
       this._data.wea = await data.json();
+
+      return this._data.wea;
     });
   }
 
@@ -24,6 +26,8 @@ class Model {
     );
 
     this._data.geo = await geoPos.json();
+
+    return this._data.geo;
   }
 }
 
